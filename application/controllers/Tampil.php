@@ -1,11 +1,10 @@
 <?php
-session_start();
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use Jenssegers\Blade\Blade;
 
-class Welcome extends CI_Controller
+class Tampil extends CI_Controller
 {
     /**
      * Index Page for this controller.
@@ -22,22 +21,7 @@ class Welcome extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/userguide3/general/urls.html
      */
-    public function index()
-    {
-        $this->load->helper('url');
-        if (isset($_POST['nama']) && isset($_POST['nim']) && isset($_POST['umur'])) {
-            $_SESSION['nama'] = $_POST['nama'];
-            $_SESSION['nim'] = $_POST['nim'];
-            $_SESSION['umur'] = $_POST['umur'];
-            redirect('Welcome/tampil');
-        }
-
-        $blade = new Blade(VIEWPATH, APPPATH . 'cache');
-        echo $blade->make('form', [])->render();
-    }
-
     public function tampil()
-    
     {
         $nama = $_SESSION['nama'];
         $nim = $_SESSION['nim'];
@@ -58,5 +42,7 @@ class Welcome extends CI_Controller
         session_destroy();
         $blade = new Blade(VIEWPATH, APPPATH . 'cache');
         echo $blade->make('tampil', ['nama' => $nama, 'nim' => $nim, 'umur' => $umur, 'status' => $status])->render();
-}
+    }
+
+    
 }

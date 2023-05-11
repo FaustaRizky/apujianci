@@ -37,7 +37,7 @@
       <div class="col-md-6">
         <h2 class="text-body-emphasis">Form Input Data</h2>
         <p>Masukan data yang akan di proses</p>
-        <form method="post" action=" {{ site_url('tampil') }}" >
+        <form method="post" action="" >
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" aria-describedby="nama">
@@ -61,3 +61,4 @@
 </div>
 </body>
 </html>
+<?php /**PATH D:\repos\apujianci\application\views/form.blade.php ENDPATH**/ ?>
